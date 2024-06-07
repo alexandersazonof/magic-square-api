@@ -54,19 +54,10 @@ app.get('/api/verify', async(req: Request, res: Response) => {
     });
   }
   const hero = user.heroes[0];
-  if (hero.timestamp < startTimestamp) {
-    return res.status(400).json({
-      code: 400,
-      message: "First hero timestamp is less than start timestamp",
-      data: {
-        result: false
-      }
-    });
-  }
-  if (hero.stats.level < 2) {
-    return res.status(400).json({
-      code: 400,
-      message: "Hero level is less than 2",
+  if (hero.timestamp < startTimestamp || hero.stats.level < 2) {
+    return res.status(200).json({
+      code: 200,
+      message: "OK",
       data: {
         result: false
       }
