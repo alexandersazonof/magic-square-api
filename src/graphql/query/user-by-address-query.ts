@@ -9,6 +9,13 @@ export function getUserByAddressQuery(): DocumentNode {
               }
           ) {
               id
+              heroes(
+                  first: 10
+                  orderBy: timestamp
+                  orderDirection: asc
+              ) {
+                  timestamp
+              }
           }
       }
   `;
