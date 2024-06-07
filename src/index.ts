@@ -63,6 +63,15 @@ app.get('/api/verify', async(req: Request, res: Response) => {
       }
     });
   }
+  if (hero.stats.level < 2) {
+    return res.status(400).json({
+      code: 400,
+      message: "Hero level is less than 2",
+      data: {
+        result: false
+      }
+    });
+  }
   return res.status(200).json({
     code: 200,
     message: "OK",

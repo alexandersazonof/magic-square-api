@@ -14,6 +14,9 @@ export function getUserByAddressQuery(): DocumentNode {
                   orderBy: timestamp
                   orderDirection: asc
               ) {
+                  stats {
+                      level
+                  }
                   timestamp
               }
           }
